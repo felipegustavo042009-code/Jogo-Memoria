@@ -1,0 +1,190 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eaf4ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: #1d3557;
+}
+
+.fundoPagina {
+    width: 100%;
+    max-width: 920px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #d9e6fb;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 26px;
+    color: #0f3e8f;
+}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    min-height: 90px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 1s ease;
+    transform: rotateY(180deg);
+}
+
+.card .front,.card .back {
+    width: 100%;
+    min-height: 90px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.card .front {
+    background: #1f6bff;
+    color: #fff;
+}
+
+.card .back {
+    background: #2ebf79;
+    color: #05321f;
+    display: none;
+}
+
+.card.virado {
+    transform: rotateY(0deg);
+}
+
+.card.virado .front {
+    display: none;
+}
+
+.card.virado .back {
+    display: flex;
+}
+
+.configurarJogo {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.configurarJogo button {
+    border: none;
+    border-radius: 8px;
+    background: #1f6bff;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.configurarJogo button:hover {
+    background: #1452c2;
+}
+
+.fundo-addPergunta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.34);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundo-addPergunta .buttonVoltar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background: rgba(255, 0, 0);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.addPergunta {
+    background: #f8fcff;
+    border-radius: 12px;
+    border: 1px solid #cbe0ff;
+    width: 94%;
+    max-width: 380px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.addPergunta label {
+    font-size: 13px;
+    color: #2f4f80;
+}
+
+.addPergunta input {
+    border: 1px solid #9fbce8;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.addPergunta button {
+    border: none;
+    border-radius: 8px;
+    background: #1f6bff;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+@media (max-width: 850px) {
+    .tabuleiro {
+            grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .tabuleiro {
+        grid-template-columns: 1fr;
+    }
+
+    .configurarJogo {
+        width: 100%;
+    }
+}
+.addPergunta > form{
+    display: flex;
+    flex-direction: column;
+}
