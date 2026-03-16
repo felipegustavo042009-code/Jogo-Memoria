@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de jogo da memória, com objetivo educacional">
+    <title>Jogo Da Memória</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Peguei o link do toastify para usar a biblioteca de notificação, para mostrar o resultado do jogo -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+
+<body>
+    <main>
+        <h1> Jogo da Memoria</h1>
+        <div class="fundoPagina">
+            <div class="tabuleiro" id="tabuleiro">
+            </div>
+        </div>
+        <div class='configurarJogo'>
+            <button onclick="document.querySelector('.fundo-addPergunta').style.display = 'flex'">Adicionar
+                Pergunta</button>
+            <button onclick="iniciar()">Iniciar</button>
+            <button onclick="reinicar()">Reiniciar</button>
+        </div>
+
+    </main>
+    <div class="fundo-addPergunta" style="display: none;">
+        <button class="buttonVoltar" onclick="document.querySelector('.fundo-addPergunta').style.display = 'none'">X</button>
+        <form action="" class="addPergunta" id="addPergunta">
+            <label for="">Pergunta</label>
+            <input type="text" name="" id="" required placeholder="Escreva a pergunta">
+            <label for="">resposta</label>
+            <input type="text" name="" id="" required placeholder="Escreva a resposta">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script src="../js/app.js"></script>
+    <!-- Script toastify para mostrar mensagens de erro ou acerto -->
+    <script>
+        //Começar Toastify para mostrar informações
+        function mostrarMensagem(mensagem, tipo) {
+            let color = '';
+            let colorTexto = '';
+            if (tipo == 'error') {
+                color = '#f56666'
+                colorTexto = 'black'
+            } else {
+                color = 'green'
+                colorTexto = 'white'
+            }
+            Toastify({
+                text: mensagem,
+                duration: 2000,
+                gravity: "top",
+                position: "right",
+                backgroundColor: color,
+                style: {
+                    color: colorTexto,
+                }
+            }).showToast();
+        }
+    </script>
+</body>
+
+</html>
