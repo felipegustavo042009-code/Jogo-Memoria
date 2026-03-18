@@ -107,6 +107,11 @@ function renderizarCardsContrario() {
 }
 
 function reinicar() {
+    if(cards.length < 4){
+        mostrarMensagem("Adicione perguntas para iniciar o jogo", "error")
+        return
+    }
+    
     cards.forEach((element) => {
         document.querySelector(`[data-indice='${element.indice}']`).classList.remove("virado")
         document.querySelector(`[data-indice='${element.indice}']`).classList.remove("virado")
